@@ -98,13 +98,15 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
       }
     }
 
-    if ((payload.event == "media.scrobble" && isVideo) || payload.event == "media.rate") {
+    if ((payload.event == "media.play" && isVideo) || (payload.event == "media.scrobble" && isVideo) || payload.event == "media.rate") {
       // Geolocate player.
       freegeoip.getLocation(payload.Player.publicAddress, function(err, location) {
 
         var action;
         if (payload.event == "media.scrobble") {
           action = "played";
+        } else if {
+          action = "started"
         } else {
           if (payload.rating > 0) {
             action = "rated ";
