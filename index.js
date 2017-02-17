@@ -105,8 +105,8 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
         var action;
         if (payload.event == "media.scrobble") {
           action = "played";
-        } else if {
-          action = "started"
+        } else if (payload.event == "media.play") {
+          action = "started";
         } else {
           if (payload.rating > 0) {
             action = "rated ";
