@@ -71,7 +71,9 @@ function notifySlack(imageUrl, payload, location, action) {
         footer_icon: payload.Account.thumb
       }
     ]
-  }, function(err, response) {});
+  }, function(err, response) {
+    console.log(err, response, "<<<<<<<")
+  });
 }
 
 app.post('/', upload.single('thumb'), function (req, res, next) {
