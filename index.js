@@ -76,6 +76,7 @@ function notifySlack(imageUrl, payload, location, action) {
 
 app.post('/', upload.single('thumb'), function (req, res, next) {
   var payload = JSON.parse(req.body.payload);
+  console.log(payload)
   var isVideo = (payload.Metadata.librarySectionType == "movie" || payload.Metadata.librarySectionType == "show");
   var isAudio = (payload.Metadata.librarySectionType == "artist");
 
